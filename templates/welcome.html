@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+Welcome
+{% endblock %}
+{% block content %}
+{% if sqli_detected %}
+<div class="container mt-3">
+    <div class="alert alert-danger text-center">
+        <strong>SQL Injection Demonstration:</strong>
+        Authentication was bypassed successfully using SQL Injection.
+    </div>
+</div>
+{% endif %}
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a href="/" class="navbar-brand fw-bold text-decoration-none">
+            Student Portal
+        </a>
+        <a href="/logout" class="btn btn-danger">
+            Logout
+        </a>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="card shadow-lg mx-auto p-5" style="max-width:800px;">
+        <div class="text-center">
+            <h6 class="text-primary fw-bold text-uppercase mb-3">
+                Demo App for Project Trainee
+            </h6>
+            <h1 class="display-6 fw-bold">
+                Welcome, {{ name }}
+            </h1>
+            <p class="lead text-muted mt-3 mb-4">
+                You have successfully logged into the Student Portal.
+                Click the button below to continue to the application form.
+            </p>
+            <a href="/form" class="btn btn-primary btn-lg px-4">
+                Fill Application Form
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

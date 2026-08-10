@@ -1,0 +1,15 @@
+body{
+    background-color:#f5f7fa;
+}
+
+.card{
+    border-radius:18px;
+}
+
+h1{
+    letter-spacing:1px;
+}
+
+.btn{
+    font-weight:600;
+}

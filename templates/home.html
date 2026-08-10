@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg mx-auto p-5" style="max-width: 800px;">
+
+        <div class="text-center">
+
+            <h6 class="text-primary fw-bold text-uppercase mb-3">
+                Demo App for Project Trainee
+            </h6>
+
+            <h1 class="display-5 fw-bold mb-3">
+                Student Portal
+            </h1>
+
+
+            <div class="d-grid gap-3 col-6 mx-auto">
+
+                <a href="/register" class="btn btn-success btn-lg">
+                    New Register
+                </a>
+
+                <a href="/login" class="btn btn-primary btn-lg">
+                    Already a User
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
