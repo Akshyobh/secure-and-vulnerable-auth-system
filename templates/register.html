@@ -1,100 +1,136 @@
 {% extends "base.html" %}
+
 {% block title %}
 Register
 {% endblock %}
+
 {% block content %}
+
 <div class="container mt-5">
     <div class="card mx-auto" style="max-width: 500px;">
         <div class="card-body">
+
             <h2 class="text-center mb-4">
                 Registration
             </h2>
+
             {% if error %}
             <div class="alert alert-danger">
                 {{ error }}
             </div>
             {% endif %}
+
             {% if success %}
             <div class="alert alert-success">
                 {{ success }}
             </div>
             {% endif %}
+
             <form method="POST">
+
+                <!-- NAME -->
                 <div class="mb-3">
                     <label class="form-label">
                         Name
                     </label>
+
                     <input
                         type="text"
                         name="name"
-                        class="form-control"
                         id="name"
+                        class="form-control"
                         required
                     >
+
                     <small id="nameMessage" class="text-muted"></small>
                 </div>
+
+
+                <!-- EMAIL -->
                 <div class="mb-3">
                     <label class="form-label">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            class="form-control"
-                            required
-                        >
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-control"
+                        disabled
+                        required
+                    >
+
                     <small id="emailMessage" class="text-muted"></small>
                 </div>
+
+
+                <!-- PHONE -->
                 <div class="mb-3">
                     <label class="form-label">
                         Phone Number
                     </label>
+
                     <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            class="form-control"
-                            pattern="[0-9]{10}"
-                            maxlength="10"
-                            required
-                            >
-                        <small id="phoneMessage" class="text-muted"></small>
-                    </div>
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        class="form-control"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        disabled
+                        required
+                    >
+
+                    <small id="phoneMessage" class="text-muted"></small>
+                </div>
+
+
+                <!-- USERNAME -->
                 <div class="mb-3">
                     <label class="form-label">
                         Username
                     </label>
+
                     <input
                         type="text"
                         name="username"
+                        id="username"
                         class="form-control"
                         pattern="[A-Za-z0-9_]{4,20}"
-                        id="username"
+                        disabled
                         required
                     >
+
                     <small id="usernameMessage" class="text-muted"></small>
                 </div>
+
+
+                <!-- PASSWORD -->
                 <div class="mb-3">
                     <label class="form-label">
                         Password
                     </label>
-                    <div class="mb-3">
+
                     <input
                         type="password"
                         name="password"
                         id="registerPassword"
                         class="form-control"
                         minlength="8"
+                        disabled
                         required
                     >
+
                     <small id="passwordMessage" class="text-muted"></small>
+
                     <div class="form-check mt-2">
 
                         <input
                             class="form-check-input"
                             type="checkbox"
                             id="showRegisterPassword"
+                            disabled
                         >
 
                         <label
@@ -106,7 +142,9 @@ Register
 
                     </div>
                 </div>
-                </div>
+
+
+                <!-- SUBMIT -->
                 <div class="d-grid">
                     <input
                         type="submit"
@@ -114,17 +152,25 @@ Register
                         class="btn btn-success"
                     >
                 </div>
+
             </form>
+
             <hr>
+
             <div class="d-flex justify-content-center gap-2">
+
                 <a href="/" class="btn btn-secondary">
                     Home
                 </a>
+
                 <a href="/login" class="btn btn-primary">
                     Go to Login
                 </a>
+
             </div>
+
         </div>
     </div>
 </div>
+
 {% endblock %}

@@ -72,11 +72,11 @@ def login():
             session["user_id"] = user[0]
             session["name"] = user[1]
             session["sqli_detected"] = sqli_detected
-            return render_template("login.html",success="Logged in Successfully")
+            return render_template("vul_login.html",success="Logged in Successfully")
         else:
-            return render_template("login.html",error="Invalid Username or Password"), 401
+            return render_template("vul_login.html",error="Invalid Username or Password"), 401
 
-    return render_template("login.html")
+    return render_template("vul_login.html")
 
 @app.route("/welcome")
 def welcome():
@@ -178,4 +178,4 @@ def logout():
     return redirect(url_for("home"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5001)
