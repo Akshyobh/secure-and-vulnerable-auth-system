@@ -7,7 +7,7 @@ from flask_limiter.errors import RateLimitExceeded
 app = Flask(__name__)
 app.secret_key = "mysecretkey"
 limiter = Limiter(key_func=get_remote_address,app=app,default_limits=[])
-db = mysql.connector.connect(host="YOUR_HOST",user="YOUR_USERNAME",password="YOUR_PASSWORD",database="YOUR_DATABASE")
+db = mysql.connector.connect(host="localhost",user="root",password="Kunu@1358",database="login_record")
 cursor = db.cursor()
 
 @app.route("/")

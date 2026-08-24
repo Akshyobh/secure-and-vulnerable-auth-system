@@ -2,7 +2,7 @@ import mysql.connector
 from flask import Flask, redirect, render_template, request, session, url_for
 app = Flask(__name__)
 app.secret_key = "mysecretkey"
-db = mysql.connector.connect(host="YOUR_HOST",user="YOUR_USERNAME",password="YOUR_PASSWORD",database="YOUR_DATABASE")
+db = mysql.connector.connect(host="localhost",user="root",password="Kunu@1358",database="login_record")
 cursor = db.cursor(buffered=True)
 
 @app.route("/")
