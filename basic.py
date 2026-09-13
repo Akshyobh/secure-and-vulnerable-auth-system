@@ -7,7 +7,7 @@ from flask_limiter.errors import RateLimitExceeded
 app = Flask(__name__)
 app.secret_key = "mysecretkey"
 limiter = Limiter(key_func=get_remote_address,app=app,default_limits=[])
-db = mysql.connector.connect(host="localhost",user="root",password="Kunu@1358",database="login_record")
+db = mysql.connector.connect(host="YOUR_HOST",user="YOUR_USERNAME",password="YOUR_PASSWORD",database="YOUR_DATABASE")
 cursor = db.cursor()
 
 @app.route("/")
@@ -58,17 +58,20 @@ def register():
     return render_template("register.html")
 
 @app.route("/login", methods=["GET", "POST"])
+
 @limiter.limit("5 per minute")
 def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
+
         cursor.execute("SELECT * FROM users WHERE username=%s",(username,))
         user = cursor.fetchone()
         if user and check_password_hash(user[5], password):
             session["user_id"] = user[0]
             session["name"] = user[1]
             return render_template("login.html", success="Logged in Successfully")
+        
         else:
             return render_template("login.html", error="Invalid Username or Password"),401
 

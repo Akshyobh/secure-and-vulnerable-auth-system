@@ -43,8 +43,7 @@ if (nameField) {
             email.disabled = false;
         } 
         else {
-            nameMessage.textContent =
-                "✗ Name should contain only letters";
+            nameMessage.textContent ="✗ Name should contain only letters";
             nameMessage.className = "text-danger";
             email.disabled = true;
             phone.disabled = true;
